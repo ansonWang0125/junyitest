@@ -6,7 +6,8 @@ def reverse(oristr):
         # print(strList)
         resultList = []
         for strs in strList:
-            resultList.append(strs[::-1])
+            if (strs != ""):
+                resultList.append(strs[::-1])
         # print(resultList)
         result = " ".join(resultList)
         return result
@@ -35,10 +36,21 @@ class ReverseTestCase(unittest.TestCase):
         result = reverse('h e l l o')
         self.assertEqual(expected, result)
 
+    def test_character(self):
+        expected = 'h e l l o'
+        result = reverse('h e l l o')
+        self.assertEqual(expected, result)
+
+    def test_whitespace(self):
+        expected = 'h e l l o'
+        result = reverse(' h e l l o ')
+        self.assertEqual(expected, result)
+
 suite = unittest.TestSuite()
 suite.addTest(ReverseTestCase('test_sample'))
 suite.addTest(ReverseTestCase('test_empty_string'))
 suite.addTest(ReverseTestCase('test_single_string'))
 suite.addTest(ReverseTestCase('test_character'))
+suite.addTest(ReverseTestCase('test_whitespace'))
 
 unittest.TextTestRunner(verbosity=2).run(suite)
