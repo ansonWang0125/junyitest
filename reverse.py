@@ -42,8 +42,8 @@ class ReverseTestCase(unittest.TestCase):
         self.assertEqual(expected, result)
 
     def test_whitespace(self):
-        expected = 'h e l l o'
-        result = reverse(' h e l l o ')
+        expected = ''
+        result = reverse('    ')
         self.assertEqual(expected, result)
 
 suite = unittest.TestSuite()
